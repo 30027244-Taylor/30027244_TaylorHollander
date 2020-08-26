@@ -1,9 +1,9 @@
 <?php
     $host = "localhost";
-    //$db = "a3002724_scp";
-    //$user = "a3002724_agent";
-    $db = "scp";
-    $user = "agent";
+    $db = "a3002724_scp";
+    $user = "a3002724_agent";
+    // $db = "scp";
+    // $user = "agent";
     $pw = "NtPmK9v2CgwI8yU4";
 
     $dsn = "mysql:host=$host; dbname=$db";

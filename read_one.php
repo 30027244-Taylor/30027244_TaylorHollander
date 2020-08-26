@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -10,13 +10,14 @@
 
         <title>SCP Foundation - Read</title>
     </head>
-    <body class="text-dark bg-dark">
+    
+    <body class="bg-dark">
         <div class="container">
+
+            <!-- Nav Bar -->
             <div class="row-cols-12">
                 <!-- PHP include -->
                 <?php include "config/select_record.php"; ?>
-                
-                <!-- Nav Bar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow">
                     <a class="navbar-brand font-weight-bold" href="index.php">
                         <img src="images/logo.png" width="50" height="50" class="d-inline-block align-middle" alt="SCP Foundation">SCP Foundation
@@ -89,7 +90,6 @@
                             $extra_3 = $row['extra_3'] ?? '';
                             $created = $row['created'] ?? '';
                             $modified = $row['modified'] ?? '';
-
                         }
                         catch(PDOException $exception)
                         {
@@ -105,6 +105,8 @@
                 <!-- Subject Record Content -->
                 <div class="col-lg-12">
                     <div class="card shadow p-3 mb-3 mt-3 bg-white rounded text-md-left text-center">
+
+                        <!-- Item Number -->
                         <h1 class="card-header bg-white text-lg-left text-center">
                             <?php echo nl2br(htmlspecialchars($item_no, ENT_QUOTES)); ?>
                         </h1>
@@ -179,7 +181,7 @@
                                 <small><strong>Record Last Updated: </strong><?php echo nl2br(htmlspecialchars($modified, ENT_QUOTES)); ?></small>
                             </div>
 
-                            <!-- Update and Delete buttons -->
+                            <!-- Update, Delete and Home buttons -->
                             <div class="row-cols-12 text-lg-left mt-4">
                                 <div class="row mb-2">
                                     <a href="update.php?id=<?php echo nl2br(htmlspecialchars($id, ENT_QUOTES)); ?>" class="btn btn-secondary">Update</a>
@@ -202,7 +204,8 @@
                 <footer class='footer mt-auto py-3 bg-light text-dark text-center rounded shadow'>
                     <div><strong>&#169;</strong> Taylor Hollander</div>
                 </footer>
-            </div>            
+            </div>
+
         </div>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -220,5 +223,6 @@
                 }
             }
         </script>
+
     </body>
 </html>

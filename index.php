@@ -1,5 +1,4 @@
-<!doctype html>
-
+<!DOCTYPE HTML>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -14,11 +13,11 @@
 
     <body class="bg-dark">
         <div class="container">
+
+            <!-- Nav Bar -->
             <div class="row-cols-12">
                 <!-- PHP include -->
                 <?php include "config/select_record.php"; ?>
-                
-                <!-- Nav Bar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow">
                     <a class="navbar-brand font-weight-bold" href="index.php">
                         <img src="images/logo.png" width="50" height="50" class="d-inline-block align-middle" alt="SCP Foundation">SCP Foundation
@@ -36,14 +35,13 @@
                             <a href="create.php" class="nav-link">New Subject Record</a>
                         </ul>
                     </div>
-                </nav>
+                </nav>                
             </div>
 
-                <!-- Welcome Message -->
+            <!-- Welcome Message -->
             <div class="row-cols-12">
                 <div class="card shadow p-3 mb-3 mt-3 bg-light rounded text-lg-left text-center">
                     <div class="card-body">
-                        <!-- Object Class -->
                         <h1 class="card-title">SCP Foundation Database</h1>
                         <p class="card-text">
                             <div class="row-cols-1">
@@ -56,8 +54,7 @@
             </div>
         
             <div class="row">
-                <?php
-                    
+                <?php   
                     // PHP include for db connection
                     include 'config/database.php';
 
@@ -125,7 +122,8 @@
                 <footer class='footer mt-auto py-3 bg-light text-dark text-center rounded shadow'>
                     <div><strong>&#169;</strong> Taylor Hollander</div>
                 </footer>
-            </div>            
+            </div>
+
         </div>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -145,5 +143,4 @@
         </script>
 
     </body>
-
 </html>

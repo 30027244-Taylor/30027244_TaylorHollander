@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 	<head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -13,11 +13,11 @@
 
 	<body class="bg-dark">
         <div class="container">
+
+            <!-- Nav Bar -->
             <div class="row-cols-12">
                 <!-- PHP include -->
                 <?php include "config/select_record.php"; ?>
-                
-                <!-- Nav Bar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow">
                     <a class="navbar-brand font-weight-bold" href="index.php">
                         <img src="images/logo.png" width="50" height="50" class="d-inline-block align-middle" alt="SCP Foundation">SCP Foundation
@@ -45,8 +45,8 @@
                         // PHP include for db connection
                         include 'config/database.php';
 
-                    try
-                    {
+                        try
+                        {
                             // Insert query
                             $query = "insert into subject set item_no=:item_no, object_class=:object_class, subject_image=:subject_image, procedures=:procedures, description=:description, h1=:h1, extra_1=:extra_1, h2=:h2, extra_2=:extra_2, h3=:h3, extra_3=:extra_3, created=:created";
 
@@ -104,11 +104,11 @@
                                 ";
                             }
 
-                    }
-                    catch(PDOException $exception)
-                    {
-                            die('ERROR: ' . $exception->getMessage());
-                    }
+                        }
+                        catch(PDOException $exception)
+                        {
+                                die('ERROR: ' . $exception->getMessage());
+                        }
                     }		
                 
                 ?>        
@@ -120,9 +120,9 @@
                 <h3>Enter new subject information using the form below.</h3>
 
                 <form class="form-group text-left" method="post" action="create.php">
+                    <hr class="mx-auto d-block">   
 
-                    <hr class="mx-auto d-block">
-                    
+                    <!-- Item Number -->                 
                     <label>Item Number: <strong>*</strong></label>
                     <br>
                     <input type="text" class="form-control" name="item_no" placeholder="Use the format 'SCPXXX'" required>
@@ -130,6 +130,7 @@
                     <br>
                     <br>
 
+                    <!-- Object Class -->
                     <label for="formControlSelect">Object Class: <strong>*</strong></label>
                     <br>
                     <select class="form-control" id="formControlSelect" name="object_class" required>
@@ -142,57 +143,67 @@
                     </select>
                     <br>
 
+                    <!-- Subject Image -->
                     <label>Subject Image:</label>
                     <br>
                     <input type="text" class="form-control" name="subject_image" placeholder="Use the format 'images/image.(jpg, png)'">
                     <br>
 
+                    <!-- Procedures -->
                     <label>Procedures:<strong>*</strong></label>
                     <br>
                     <textarea class="form-control" name="procedures" rows="5" placeholder="Separate paragraphs with a new line" required></textarea>
                     <br>
 
+                    <!-- Description -->
                     <label>Description: <strong>*</strong></label>
                     <br>
                     <textarea class="form-control" name="description" rows="5" placeholder="Separate paragraphs with a new line" required></textarea>
                     <br>
 
+                    <!-- h1 -->
                     <label>Heading:</label>
                     <br>
                     <input type="text" class="form-control" name="h1">
                     <br>
 
+                    <!-- Extra 1 -->
                     <label>Extra Information:</label>
                     <br>
                     <textarea class="form-control" name="extra_1" rows="5" placeholder="Separate paragraphs with a new line"></textarea>
                     <br>
 
+                    <!-- h2 -->
                     <label>Heading:</label>
                     <br>
                     <input type="text" class="form-control" name="h2">
                     <br>
 
+                    <!-- Extra 2 -->
                     <label>Extra Information:</label>
                     <br>
                     <textarea class="form-control" name="extra_2" rows="5"></textarea>
                     <br>
 
+                    <!-- h3 -->
                     <label>Heading:</label>
                     <br>
                     <input type="text" class="form-control" name="h3">
                     <br>
-
+                    
+                    <!-- Extra 3 -->
                     <label>Extra Information:</label>
                     <br>
                     <textarea class="form-control" name="extra_3" rows="5"></textarea>
-
                     <br>
                     <hr class="mx-auto d-block">
                     <br>
-                    
-                    <input type="submit" class="btn btn-success mx-auto d-block" name="submit" value="Submit">
-                    
+
+                    <!-- Submit button -->
+                    <input type="submit" class="btn btn-success mx-auto d-block" name="submit" value="Submit">                    
                 </form>
+
+                <!-- Home button -->
                 <div class="row-cols-12 text-center">
                     <a href="index.php" class="btn btn-dark btn-sm">Back to Home</a>
                 </div>
@@ -204,6 +215,7 @@
                     <div><strong>&#169;</strong> Taylor Hollander</div>
                 </footer>
             </div>
+
         </div>
 
 
@@ -211,5 +223,6 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="js/bootstrap.bundle.js"></script>
+        
 	</body>
 </html>

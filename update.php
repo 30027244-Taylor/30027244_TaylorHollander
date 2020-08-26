@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -13,11 +13,11 @@
 
     <body class="bg-dark">
         <div class="container">
+
+            <!-- Nav Bar -->
             <div class="row-cols-12">
                 <!-- PHP include -->
                 <?php include "config/select_record.php"; ?>
-                
-                <!-- Nav Bar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow">
                     <a class="navbar-brand font-weight-bold" href="index.php">
                         <img src="images/logo.png" width="50" height="50" class="d-inline-block align-middle" alt="SCP Foundation">SCP Foundation
@@ -74,8 +74,6 @@
                         $extra_2 = $row['extra_2'] ?? '';
                         $h3 = $row['h3'] ?? '';
                         $extra_3 = $row['extra_3'] ?? '';
-                        
-
                     }
                     catch(PDOException $exception)
                     {
@@ -120,33 +118,29 @@
                             $update->bindParam(':h3', $h3);
                             $update->bindParam(':extra_3', $extra_3);
 
-                            // Updates modified timestamp
+                            // Specify when record was modified and then bind
                             $modified = date('Y-m-d H:i:s');
                             $update->bindParam(':modified', $modified);
 
                             // Execute the update query
                             if($update->execute())
                             {
-                                echo "
-                                
-                                <div class='alert alert-success mt-4'>
-                                    <h4>Record {$id} was updated successfully.</h4>
-                                    <p><a href='read_one.php?id={$id}' class='btn btn-secondary'>Back to {$item_no}</a></p>
-                                    <p><a href='index.php' class='btn btn-dark btn-sm'>Back to Home</a></p>
-                                </div>
-                                
+                                echo "                                
+                                    <div class='alert alert-success mt-4'>
+                                        <h4>Record {$id} was updated successfully.</h4>
+                                        <p><a href='read_one.php?id={$id}' class='btn btn-secondary'>Back to {$item_no}</a></p>
+                                        <p><a href='index.php' class='btn btn-dark btn-sm'>Back to Home</a></p>
+                                    </div>                                
                                 ";
                             }
                             else
                             {
-                                echo "
-                                
-                                <div class='alert alert-danger mt-4'>
-                                    <h4>Unable to update record, please try again.</h4>
-                                    <p><a href='read_one.php?id={$id}' class='btn btn-secondary'>Back to {$item_no}</a></p>
-                                    <p><a href='index.php' class='btn btn-dark bt-sm'>Back to Home</a></p>
-                                </div>
-                                
+                                echo "                                
+                                    <div class='alert alert-danger mt-4'>
+                                        <h4>Unable to update record, please try again.</h4>
+                                        <p><a href='read_one.php?id={$id}' class='btn btn-secondary'>Back to {$item_no}</a></p>
+                                        <p><a href='index.php' class='btn btn-dark bt-sm'>Back to Home</a></p>
+                                    </div>                                
                                 ";
                             }
                         }
@@ -157,12 +151,10 @@
                     }
                     else
                     {
-                        echo "
-                        
-                        <div class='alert alert-warning mt-4'>
-                            <h4>Record is ready to be updated</h4>
-                        </div>
-
+                        echo "                        
+                            <div class='alert alert-warning mt-4'>
+                                <h4>Record is ready to be updated</h4>
+                            </div>
                         ";
                     }
                 
@@ -175,19 +167,21 @@
                 <h3>Update record for <?php echo htmlspecialchars($item_no, ENT_QUOTES); ?> using the form below.</h3>
                 
                 <form class="form-group text-left" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] . '?id={$id}'); ?>">
-
                     <hr class="mx-auto d-block">
 
+                    <!-- Record ID -->
                     <label>Record ID: <?php echo htmlspecialchars($id, ENT_QUOTES); ?></label>
                     <br>
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($id, ENT_QUOTES); ?>">
                     <br>
 
+                    <!-- Item Number -->
                     <label>Item Number: *</label>
                     <br>
                     <input type="text" class="form-control" name="item_no" value="<?php echo htmlspecialchars($item_no, ENT_QUOTES); ?>" required>
                     <br>
 
+                    <!-- Object Class -->
                     <label for="formControlSelect">Object Class: *</label>
                     <br>
                     <select class="form-control" id="formControlSelect" name="object_class" required>
@@ -200,60 +194,72 @@
                     </select>
                     <br>
 
+                    <!-- Subject Image -->
                     <label>Subject Image:</label>
                     <br>
                     <input type="text" name="subject_image" class="form-control" value="<?php echo htmlspecialchars($subject_image, ENT_QUOTES); ?>">
                     <br>
 
+                    <!-- Procedures -->
                     <label>Procedures: *</label>
                     <br>
                     <textarea name="procedures" class="form-control" rows="5" value="<?php echo htmlspecialchars($procedures, ENT_QUOTES); ?>" required><?php echo htmlspecialchars($procedures, ENT_QUOTES); ?></textarea>
                     <br>
 
+                    <!-- Description -->
                     <label>Description: *</label>
                     <br>
                     <textarea name="description" class="form-control" rows="5" value="<?php echo htmlspecialchars($description, ENT_QUOTES); ?>" required><?php echo htmlspecialchars($description, ENT_QUOTES); ?></textarea>
                     <br>
                     
+                    <!-- h1 -->
                     <label>Heading:</label>
                     <br>
                     <input type="text" class="form-control" name="h1" value="<?php echo htmlspecialchars($h1, ENT_QUOTES); ?>">
                     <br>
 
+                    <!-- Extra 1 -->
                     <label>Extra Information:</label>
                     <br>
                     <textarea name="extra_1" class="form-control" rows="5" value="<?php echo htmlspecialchars($extra_1, ENT_QUOTES); ?>"><?php echo htmlspecialchars($extra_1, ENT_QUOTES); ?></textarea>
                     <br>
 
+                    <!-- h2 -->
                     <label>Heading:</label>
                     <br>
                     <input type="text" class="form-control" name="h2" value="<?php echo htmlspecialchars($h2, ENT_QUOTES); ?>">
                     <br>
 
+                    <!-- Extra 2 -->
                     <label>Extra Information:</label>
                     <br>
                     <textarea name="extra_2" class="form-control" rows="5" value="<?php echo htmlspecialchars($extra_2, ENT_QUOTES); ?>"><?php echo htmlspecialchars($extra_2, ENT_QUOTES); ?></textarea>
                     <br>
 
+                    <!-- h3 -->
                     <label>Heading:</label>
                     <br>
                     <input type="text" class="form-control" name="h3" value="<?php echo htmlspecialchars($h3, ENT_QUOTES); ?>">
                     <br>
 
+                    <!-- Extra 3 -->
                     <label>Extra Information:</label>
                     <br>
                     <textarea name="extra_3" class="form-control" rows="5" value="<?php echo htmlspecialchars($extra_3, ENT_QUOTES); ?>"><?php echo htmlspecialchars($extra_3, ENT_QUOTES); ?></textarea>
                     <br>
-
                     <br>
-                    <hr class="mx-auto d-block bg-dark">
+                    <hr class="mx-auto d-block">
                     <br>
 
+                    <!-- Save Changes button -->
                     <input type="submit" name="update" value="Save Changes" class="btn btn-warning mx-auto d-block">
                 </form>
+
+                <!-- Home button -->
                 <div class="row-cols-12 text-center">
                     <a href="index.php" class="btn btn-dark btn-sm">Back to Home</a>
-                </div>                
+                </div>
+
             </div>
 
             <!-- Footer -->
@@ -262,11 +268,13 @@
                     <div><strong>&#169;</strong> Taylor Hollander</div>
                 </footer>
             </div>
+
         </div>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="js/bootstrap.bundle.js"></script>
+        
     </body>
 </html>

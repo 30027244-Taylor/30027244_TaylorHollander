@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 
-        <title>SCP Database</title>
+        <title>SCP Database - Delete</title>
     </head>
 
     <body class="container row-cols-1">
@@ -54,5 +54,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="js/bootstrap.bundle.js"></script>
+        
     </body>
 </html>
