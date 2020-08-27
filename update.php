@@ -127,7 +127,7 @@
                             {
                                 echo "                                
                                     <div class='alert alert-success mt-4'>
-                                        <h4>Record {$id} was updated successfully.</h4>
+                                        <h4 class='text-left'>Record {$id} was updated successfully.</h4>
                                         <p><a href='read_one.php?id={$id}' class='btn btn-secondary'>Back to {$item_no}</a></p>
                                         <p><a href='index.php' class='btn btn-dark btn-sm'>Back to Home</a></p>
                                     </div>                                

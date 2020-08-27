@@ -46,7 +46,7 @@
                         <p class="card-text">
                             <div class="row-cols-1">
                                 <p class="lead font-italic">Welcome Agent.</p>
-                                <p class="lead">View the current subject records below or add a new subject.</p>
+                                <p class="lead">View, update or delete the current subject records from the database or add a new subject record.</p>
                             </div>
                         </p>
                     </div>
@@ -73,27 +73,28 @@
                     if($delete == 'deleted')
                     {
                         echo "
-                            <div class='col-12 alert alert-success mt-4'>
-                                <h4>Record has been deleted successfully.</h4>
-                            </div>
-                        ";
+                        <div class='col-md-12 alert alert-success'>
+                            <h4>Record has been deleted successfully</h4>
+                            <p><a href='create.php' class='btn btn-dark'>Back To Home</a></p>
+                        </div>
+                ";
                     }
 
                     // If there is more than one row in the db, display it
                     if($rows > 0)
                     {	
-                        // Loop through table to retrieve each record and display in bootstrap grid
+                        // Loop through table to retrieve each record and display in bootstrap grid card-img-top
                         while($record = $statement->fetch(PDO::FETCH_ASSOC))
                         {
                             extract($record);
 
                             echo "
                                 <div class='col-md-6'>
-                                    <div class='card shadow p-3 mb-3 bg-light rounded text-center'>
-                                        <h3 class='card-header bg-light'>
+                                    <div class='card shadow p-3 pt-1 mb-3 bg-light rounded text-center'>
+                                        <h3 class='bg-light'>
                                             {$item_no}
                                         </h3>
-                                        <img src='{$subject_image}' class='card-img-top shadow rounded' alt='{$item_no}'>
+                                        <img src='{$subject_image}' style='display: block; max-width: 90%; height: auto; margin-left: auto; margin-right: auto;' class=' shadow rounded mt-4' alt='{$item_no}'>
                                         <div class='card-body'>                                            
                                             <p class='card-text'></p>
                                             <div class='row'>

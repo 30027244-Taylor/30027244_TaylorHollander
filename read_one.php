@@ -27,7 +27,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarHamburger">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-2">
-                            <a href="index.php" class="nav-link active">Home</a>
+                            <a href="index.php" class="nav-link">Home</a>
                             <!-- Run php loop through db and display subject item numbers here -->
                             <?php foreach($record as $scp_item): ?>
                                 <a href="read_one.php?id='<?php echo $scp_item['id']; ?>'" class="nav-link"><?php echo $scp_item['item_no']; ?></a>
@@ -116,17 +116,17 @@
                             <h2 class="card-title text-lg-left text-center"><?php echo nl2br(htmlspecialchars($object_class, ENT_QUOTES)); ?></h2>
 
                             <p class="card-text">
-
+                            
                                 <!-- Subject Image -->
                                 <div class="row-cols-1">
-                                    <p><img src="<?php echo nl2br(htmlspecialchars($subject_image, ENT_QUOTES)); ?>" class="card-img-top img-fluid shadow rounded" alt="<?php echo htmlspecialchars($item_no, ENT_QUOTES); ?>"></p>
+                                    <p><img src="<?php echo nl2br(htmlspecialchars($subject_image, ENT_QUOTES)); ?>" alt="<?php echo htmlspecialchars($item_no, ENT_QUOTES); ?>" style="display: block; max-width: 80%; height: auto; margin-left: auto; margin-right: auto;" class="rounded shadow"></p>
                                 </div>
 
                                 <!-- Procedures -->
                                 <div class="row-cols-1">
                                     <h3 class="text-lg-left text-center">Special Containment Procedures:</h3>
                                 </div>
-                                <div class="row-cols-1">
+                                <div class="row-cols-1 text-left">
                                     <p>
                                         <?php echo nl2br(htmlspecialchars($procedures, ENT_QUOTES)); ?>
                                     </p>
@@ -136,7 +136,7 @@
                                 <div class="row-cols-1">
                                     <h3 class="text-lg-left text-center">Description:</h3>
                                 </div>
-                                <div class="row-cols-1">
+                                <div class="row-cols-1 text-left">
                                     <p>
                                         <?php echo nl2br(htmlspecialchars($description, ENT_QUOTES)); ?>
                                     </p>
@@ -144,9 +144,9 @@
 
                                 <!-- Extra 1 -->
                                 <div class="row-cols-1">
-                                    <h class="text-lg-left text-center"><?php echo nl2br(htmlspecialchars($h1, ENT_QUOTES)); ?></h3>
+                                    <h3 class="text-lg-left text-center"><?php echo nl2br(htmlspecialchars($h1, ENT_QUOTES)); ?></h3>
                                 </div>
-                                <div class="row-cols-1">
+                                <div class="row-cols-1 text-left">
                                     <p>
                                         <?php echo nl2br(htmlspecialchars($extra_1, ENT_QUOTES)); ?>
                                     </p>
@@ -156,7 +156,7 @@
                                 <div class="row-cols-1">
                                     <h3 class="text-lg-left text-center"><?php echo nl2br(htmlspecialchars($h2, ENT_QUOTES)); ?></h3>
                                 </div>
-                                <div class="row-cols-1">
+                                <div class="row-cols-1 text-left">
                                     <p>
                                         <?php echo nl2br(htmlspecialchars($extra_2, ENT_QUOTES)); ?>
                                     </p>
@@ -166,7 +166,7 @@
                                 <div class="row-cols-1">
                                     <h3 class="text-lg-left text-center"><?php echo nl2br(htmlspecialchars($h3, ENT_QUOTES)); ?></h3>
                                 </div>
-                                <div class="row-cols-1">
+                                <div class="row-cols-1 text-left">
                                     <p>
                                         <?php echo nl2br(htmlspecialchars($extra_3, ENT_QUOTES)); ?>
                                     </p>

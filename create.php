@@ -88,7 +88,7 @@
                                 echo "
                                     <div class='alert alert-success mt-4'>
                                         <h4>New Subject added!</h4>
-                                        <p>New subject record has been successfully created and added to the database.</p>
+                                        <p class='text-left'>New subject record has been successfully created and added to the database.</p>
                                         <a href='index.php' class='btn btn-dark'>Back to Home</a>
                                     </div>
                                 ";
@@ -99,7 +99,8 @@
                                     <div class='alert alert-danger mt-4'>
                                         <h4>Unable to save record</h4>
                                         <p>Something has gone wrong... Please try again.</p>
-                                        <a href='create.php' class='btn btn-dark'>Back To Home</a>
+                                        <a href='index.php' class='btn btn-dark'>Back To Home</a>
+                                        <a href='create.php' class='btn btn-dark'>Back To New Subject Form</a>
                                     </div>
                                 ";
                             }
